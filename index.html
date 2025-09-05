@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="hr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/jpg"  href="./assets/favicon.png">
+  <title>Unapređivač prodaje</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+ <div class="container">
+        <div class="header">
+            <h1>Unapređivač prodaje</h1>
+            <p>Evidencija stanja u trgovini</p>
+        </div>
+
+        <div class="controls">
+            <input type="text" id="storeName" placeholder="Naziv trgovine" class="input-text">
+            <input type="text" id="posCode" placeholder="POS kod" class="input-text">
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="calculateTotal()">📊 Izračunaj</button>
+            <button class="btn btn-secondary" onclick="clearAll()">🗑️ Očisti</button>
+            <button class="btn btn-secondary" onclick="exportToPDF()">📄 PDF</button>
+        </div>
+
+        <div class="table-container">
+            <table id="cigaretaTable">
+                <thead>
+                    <tr>
+                        <th>Proizvod</th>
+                        <th>OOS</th>
+                        <th>Blag. 1</th>
+                        <th>Blag. 2</th>
+                        <th>Blag. 3</th>
+                        <th>Blag. 4</th>
+                        <th>Blag. 5</th>
+                        <th onclick="sortTableByTotal()" style="cursor:pointer;">Ukupno ⬍</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="summary">
+            <h3>📋 Sažetak za skladište</h3>
+            <div class="total-needed" id="totalSummary">Ukupno potrebno: 0 paketa</div>
+            <div class="oos-summary" id="oosSummary">OOS proizvodi: 0</div>
+        </div>
+    </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
